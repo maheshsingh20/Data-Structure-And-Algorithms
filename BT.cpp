@@ -218,6 +218,19 @@ vector<int> pathofnode(node* root, int k){
     return path;
 }
 
+int LCA(node* root, int k, int j) {
+    if (root == nullptr) return 0;
+    if (root->data == k || root->data == j) return root->data;
+
+    int leftt = LCA(root->left, k, j);
+    int rightt = LCA(root->right, k, j);
+
+    if (leftt && rightt) return root->data;
+    else if (leftt) return leftt;
+    else return rightt;
+}
+
+
 int lowestCommonAncestor(node* root, int k ,int j){
     vector<int> path1;
     vector<int> path2;
@@ -249,5 +262,6 @@ int main(){
         cout << path[i] << " ";
     }
     cout << endl;
+    cout<<"Lowest Common Ancestor: "<<LCA(root,8,7)<<endl;
     return 0;
 }
