@@ -248,20 +248,40 @@ int lowestCommonAncestor(node* root, int k ,int j){
     return LCA;
 }
 
+int kthAncestor(node* root, int k, int node){
+    if(root==NULL){
+        return -1;
+    }
+    if(root->data==node) return 0;
+    int l=kthAncestor(root->left,k,node);
+    int r=kthAncestor(root->right,k,node);
+    if(l==-1 && r==-1){
+        return -1;
+    }
+    int validd=l==-1?r:l;
+    int anss=0;
+    if(validd+1==k){
+        anss=root->data;
+    }
+    return anss;
+}
 
 
 int main(){
     node* root = btrec();
     cout << "Level Order Traversal:" << endl;
     levelordertraversal(root);
-    int res=lowestCommonAncestor(root, 8, 7);
-    cout << "Lowest Common Ancestor: " << res << endl;
-    cout<<"Path of node is: ";
-    vector<int> path = pathofnode(root, 6);
-    for (int i = 0; i < path.size(); i++) {
-        cout << path[i] << " ";
-    }
-    cout << endl;
-    cout<<"Lowest Common Ancestor: "<<LCA(root,8,7)<<endl;
+    // int res=lowestCommonAncestor(root, 8, 7);
+    // cout << "Lowest Common Ancestor: " << res << endl;
+    // cout<<"Path of node is: ";
+    // vector<int> path = pathofnode(root, 6);
+    // for (int i = 0; i < path.size(); i++) {
+    //     cout << path[i] << " ";
+    // }
+    // cout << endl;
+    // cout<<"Lowest Common Ancestor: "<<LCA(root,8,7)<<endl;
+
+
+    cout<<"Kth from Node: "<<kthAncestor(root,8,3)<<endl;
     return 0;
 }
