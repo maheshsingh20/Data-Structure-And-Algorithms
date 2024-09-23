@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 using namespace std;
 
 
@@ -122,7 +122,6 @@ bool binarySearch(int *arr, int size, int key, int start, int end){
         return true;
     }else if (arr[mid]>key)
     {
-        /* code */
         return binarySearch(arr,mid,key,start,mid-1);
     }
     {
@@ -130,8 +129,34 @@ bool binarySearch(int *arr, int size, int key, int start, int end){
     }
 }
 
+//STRINGGGG USING RECURSION
 
-int main(){
+
+
+void reverseREc(string &str, int start, int end) {
+    if (start >= end) {
+        return;
+    }
+    swap(str[start], str[end]);
+    reverseREc(str, start + 1, end - 1);
+}
+
+
+bool checkpalindrome(string &str, int start, int end){
+    if(start>=end){
+        return false;
+    }
+    if(str[start]==str[end]){
+        return true;
+    }
+    return checkpalindrome(str,start+1,end-1);
+}
+
+
+
+
+
+//int main(){
 
 
     // int num;
@@ -169,8 +194,8 @@ int main(){
     // saynprint(num,arr);
 
 
-    int arr[5]={1,2,3,4,5};
-    int size=5;
+    // int arr[5]={1,2,3,4,5};
+    // int size=5;
     // int ans=sumofarray(arr,size);
     // cout<<ans;
 
@@ -193,6 +218,72 @@ int main(){
     //     cout<<"Not found";
     // }
 
+    //string str="malayalam";
+    // reverseREc(str,0,str.length()-1);
+    // cout<<str;
 
-    return 0;
+
+    // if(checkpalindrome(str,0,str.length()-1)){
+    //     cout<<"Palindrome";
+    // }else{
+    //     cout<<"Not Palindrome";
+    // }
+
+
+
+//     return 0;
+// }
+
+*/
+
+
+// #include <iostream>
+// using namespace std;
+
+// int bpowerofa(int a,int b){
+//     if(a==0){
+//         return 0;
+//     }
+//     if(b==0){
+//         return 1;
+//     }
+//     int ans=bpowerofa(a,b/2);
+//     if(b%2==0){
+//         return ans*ans;
+//     }else{
+//         return ans*ans*a;
+//     }
+// }
+
+
+// int main(){
+//     int num1;    
+//     int num2;
+//     cout<<"Enter the first number: "<<endl;
+//     cin>>num1;
+//     cout<<"Enter the second number: "<<endl;
+//     cin>>num2;
+//     cout<<bpowerofa(num1,num2);
+
+
+//     return 0;
+// }
+
+
+
+//Merge Sort using Recursion
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector <int> mergeSort(vector <int> &arr){
+    222
+}
+
+
+int main(){
+    vector<int> arr={9,5,2,3,7,11,17};
+
 }

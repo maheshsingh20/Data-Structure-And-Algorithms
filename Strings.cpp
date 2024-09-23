@@ -1,28 +1,35 @@
 #include <iostream>
-#include <vector>
+#include <cstring>
 using namespace std;
 
-int count(string allowed, vector<string> arr) {
-    int cnt = 0;
-    for (int i = 0; i < arr.size(); i++) {
-        bool canForm = true;
-        for (int j = 0; j < arr[i].size(); j++) {
-            if (allowed.find(arr[i].at(j)) == string::npos) {
-                canForm = false;
-                break;
-            }
-        }
-        if (canForm) {
-            cnt++;
-        }
-    }
-    return cnt;
-}
 
-int main() {
-    string allowed = "ab";
-    vector<string> arr = {"ad", "bd", "aaab", "baa", "badab"};
-    int res = count(allowed, arr);
-    cout << res << endl;
-    return 0;
+int main(){
+    //character storing 
+    // char a='a';
+    // char b='b';
+    // cout<<int(a)<<endl;
+    // cout<<a<<endl<<b<<endl;
+    // char f='f';
+    // int pos=f-'a'+1;
+    // cout<<pos;
+
+
+    //char Arrays
+
+    // char str[5]={'c','o','d','e','\0'};
+    // char str1[]="hello";
+    // cout<<strlen(str1)<<endl;
+    // cout<<str;
+    
+
+    char name[20];
+    cout<<"Enter name: ";
+    cin.getline(name,20,'g'); //name: arr name  20: size of array  g: limiter
+    // cout<<name<<endl;
+    // cout<<strlen(name);
+
+
+    //convert to uppercase
+    
+    
 }
