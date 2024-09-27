@@ -19,14 +19,27 @@ int fib(int n) {
     return solve(dp, n);
 }
 
-int main() {
-    int num;
-    cout << "Enter the number: " << endl;
-    cin >> num;
-    //int ans = fib(num);
-    //cout << "The Fibonacci of the number is: " << ans << endl;
-    for(int i=0;i<5;i++){
-        cout<<fib(i)<<" ";
+int solve1(vector<int> arr,int index, int amount,vector<vector<int>> &dp){
+    if(amount==0){
+        return 1;
     }
+    if(amount<0|| index >= arr.size() ){
+        return 0;
+    }
+    if(dp[index][amount] != -1) return dp[index][amount];
+    int take=solve1(arr,index,amount-arr[index],dp);
+    int skip=solve1(arr,index+1,amount,dp);
+    return dp[index][amount] =min(take,skip);
+}
+
+int coinChangeI(vector<int>arr, int amount){
+    vector<vector<int>> dp(arr.size(),vector<int>(amount+1,-1));
+    return solve1(arr,0,amount,dp);
+}
+
+int main() {
+    vector<int>arr={1,2,3};
+    int amount=4;
+    cout<<coinChangeI(arr,amount);
     return 0;
 }
