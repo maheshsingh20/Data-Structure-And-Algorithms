@@ -34,17 +34,64 @@ string decitobin(int decimal) {
     return binary;
 }
 
+
+bool ithbitissetornot(int num1, int num2) {
+    return (num1 & (1 << num2)) != 0;
+}
+
+int settheIthbit(int num1, int num2){
+    num2=(1<<num2);
+    return num1|num2;
+}
+
+int cleartheithbit(int num1, int num2){
+    return num1^(1<<num2);
+}
+
+int clearfirstset(int num){
+    int num2=num-1;
+    return num & num2;
+}
+
+
+
+
 int main() {
+    /*
     int a = 5;
     int b = 3;
     cout << "And: " << (a & b) << endl;
     cout << "Or: " << (a | b) << endl;
-    cout << "Xor: " << (a ^ b) << endl;
+    cout << "Xor: " << (6^ 5) << endl;
     cout << "Left shift: << " << (a << 1) << endl;   // x << k = x * 2^k
     cout << "a: " << a << endl;
     cout << "Right shift: >> " << (a >> 1) << endl;  // x >> k = x / 2^k
-    cout << "NOT: " << (~a) << endl;
-    cout << "Binary to Decimal of \"10\": " << bintodecimal("10") << endl;
-    cout << "Decimal to Binary of -6: " << decitobin(-6) << endl;
-    
+    cout << "NOT: " << (~(-5)) << endl;
+    //for not of a positive number=> Step: 1 first flip if you get -ve sign get 2's complement and it return that number with that negative sign mean's the number what we get afer 
+    // 2's complement is the answer of not of that number with negative sign.
+    // for not of a negative number=> Step 1: get 1's of it's positive number then 2's
+    //Step: 2 now flip if you get -ve sign get 2's complement and it return that number with that positive sign mean's the number what we get afer
+    cout << "Binary to Decimal of \"110\": " << bintodecimal("110") << endl;
+    cout << "Decimal to Binary of 6: " << decitobin(6) << endl;
+
+    cout<<"a before swap: "<<a<<endl;
+    cout<<"b before swap: "<<b<<endl;
+    cout<<"a after swap: "<<((a^b)^a)<<endl;   
+    cout<<"b after swap: "<<((a^b)^b)<<endl;
+
+    if(ithbitissetornot(5,1)){
+        cout<<"set"<<endl;
+    }else{
+        cout<<"Not a set"<<endl;
+    }
+
+    */
+//    int a=7;
+//    cout<<(a>>3);
+
+
+    //cout<<settheIthbit(9,2);
+   // cout<<cleartheithbit(7,1);
+   cout<<clearfirstset(1000)<<endl;
+   return 0;
  }
