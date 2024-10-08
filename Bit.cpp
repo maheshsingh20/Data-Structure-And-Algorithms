@@ -53,7 +53,10 @@ int clearfirstset(int num){
     return num & num2;
 }
 
-
+bool checkpowerof2(int num){
+    if(num==0) return false;
+    return (num & (num-1))==0;  
+}
 
 
 int main() {
@@ -92,6 +95,10 @@ int main() {
 
     //cout<<settheIthbit(9,2);
    // cout<<cleartheithbit(7,1);
-   cout<<clearfirstset(1000)<<endl;
-   return 0;
+   if(checkpowerof2(16)){
+    cout<<"Truee: "<<endl;
+   }
+   else{
+    cout<<"False: "<<endl;
+   }
  }
