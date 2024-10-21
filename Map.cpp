@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include <map>
 using namespace std;
 
@@ -11,7 +11,7 @@ int main(){
     pre.insert(pair<int,int>(4,40));
     pre.insert(pair<int,int>(5,50));
     pre.insert(pair<int,int>(6,60));
-
+    pre.
 
     // while(it!=pre.end()){
     //     cout<<it->first<<" ";//use first here to access key
@@ -75,7 +75,47 @@ int main(){
         ++itt;
     }
 
-    cout<<"Element we find is: "<<endl;
-    map<int,int> ::iterator iter =pre.find(5);
-    cout<<iter->first<<" "<<iter->second<<endl;
+    // cout<<"Element we find is: "<<endl;
+    // map<int,int> ::iterator iter =pre.find(5);   //finding element by passing its key
+ 
+    // cout<<iter->first<<" "<<iter->second<<endl;
+
+
+
+}
+
+*/
+
+#include <iostream>
+#include <map>
+#include <vector>
+
+using namespace std;
+
+
+
+int num(vector<int>& arr1, vector<int> &arr2){
+    map<int ,int>pre;
+    map<int ,int>pre1;
+    int s2=arr2.size();
+    for(int i=0;i<arr1.size();i++){
+        pre[i]=arr1[i];
+    }
+    for(int i=0;i<arr2.size();i++){
+        //map<int, int>::iterator it=pre.begin();
+        if(pre.find(arr2[i])==pre.end()){
+            pre1[i+s2]=arr2[i];
+        }
+    }
+    return pre.size()+pre1.size();
+}
+
+
+
+
+int main(){
+    vector <int>arr1= {1,2,3,4,5,2,3};
+    vector <int> arr2={1,3,8,9,11,16,11};
+    cout<<num(arr1,arr2);
+    return 0;
 }

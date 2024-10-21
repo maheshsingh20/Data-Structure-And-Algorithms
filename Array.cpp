@@ -87,6 +87,19 @@ vector <int> moveZeroesToEnd(vector<int> &arr){
 }
 
 
+int majorityelement(vector<int> &arr){
+    map<int,int> freq;
+    for(int i=0;i<arr.size();i++){
+        freq[arr[i]]++;
+    }
+    for(auto i:freq){
+        if(i.second>arr.size()/2){
+            return i.first;
+        }
+    }
+    return -1;
+}
+
 vector<int> unionOfArray(vector<int> arr1, vector<int> arr2){
     int maxx=max(arr1[arr1.size()-1],arr2[arr2.size()-1]);
     vector<int> freq(maxx+1,-1);
@@ -215,7 +228,10 @@ vector<int> twosum(vector<int> &num,int target){
     return {-1,-1};
 }
 
-int main(){
+
+
+
+// int main(){
     //int arr[5]={1,2,8,4,5};
     // int ans=secondlargest(arr);
     // cout<<ans<<endl;
@@ -274,11 +290,34 @@ int main(){
     // cout<<longestSubarraywithsumk(arr,2);
 
 
-    vector<int> arr={6,8,4,2,3,7};
-    for (int i = 0; i < twosum(arr,13).size(); i++)
-    {
-        cout<<twosum(arr,13)[i]<<" ";
-    }
+    // vector<int> arr={6,8,4,2,3,7};
+    // for (int i = 0; i < twosum(arr,13).size(); i++)
+    // {
+    //     cout<<twosum(arr,13)[i]<<" ";
+    // }
     
     // return 0;
+
+//     vector <int> arr={1,1,1,1,1,2,2,2,2,2,2,2,2,3,4};
+//     cout<<majorityelement(arr);
+// }
+
+
+int maximumproductsubarray(vector<int> &arr){
+    int product=1;
+    int count=0;
+    for(int i=0;i<arr.size();i++){
+        product*=arr[i];
+        if(arr[i]<0){
+            count++;
+        }
+    }
+    if(count%2==0) 
+    return product;
+}
+
+int main(){
+    vector<int> arr={1,-2,3,-4,5,-6};
+    cout<<maximumproductsubarray(arr);
+    return 0;
 }
